@@ -8,6 +8,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -72,7 +73,11 @@ fun SuperheroView() {
 
 @Composable
 fun SuperheroView() {
-    LazyVerticalGrid(columns = GridCells.Fixed(2), content = {
+    LazyVerticalGrid(columns = GridCells.Adaptive(130.dp),
+        contentPadding = PaddingValues(horizontal = 4.dp, vertical = 4.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        content = {
         val listaSuperheroes = getSuperheroes()
         items(listaSuperheroes) {
             val context = LocalContext.current
